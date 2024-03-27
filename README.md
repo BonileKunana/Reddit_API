@@ -19,4 +19,3 @@ How to run the API:
  The results will be shown on both the client side and server side:
 + The test file was designed in such a way that it first test for positive test cases(for examle, query a post that exists or delete a post that exist)
 + And then it tests for negetive test cases (for example comment on /like a post that does not exist)
-+ In the Test_Reddit_API class I included the print statement at the end for clarity(this is printing the actual response from the server)
