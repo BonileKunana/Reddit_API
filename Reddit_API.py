@@ -1,12 +1,35 @@
 from flask import Flask, request, jsonify
-
+from flask_jwt_extended import JWTManager, jwt_required, create_access_token
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)  # Enable Cross-Origin Resource Sharing (CORS)
+
+# JWT Configuration
+app.config['JWT_SECRET_KEY'] = 'your_secret_key'
+jwt = JWTManager(app)
+
+# Username and password
+users = {'test_user': 'password'}
 
 # Data structures to store posts, comments, and user information
 posts = []
 comments = {}
-users = {}
+#users = {}
+
+@app.route('/login',methods=['POST'])
+def login():
+    """
+    Authenticate users and generate JWT token upon successful login.
+    """
+    username = request.json.get('username')
+    password = request.json.get('password')
+    print(username)
+    print(password)
+    if username in users and users[username] == password:
+        access_token = create_access_token(identity=username)
+        return 'success', 200
+    return 'Invalid username or password', 404
 
 @app.route('/post', methods=['POST'])
 def create_post():
@@ -20,6 +43,12 @@ def create_post():
         str: success 
     """
     data = request.json
+
+    # Perform input validation here
+    # Example: Ensure 'title', 'content', and 'author' fields are present
+    if 'title' not in data or 'content' not in data or 'author' not in data:
+        return jsonify({'message': 'Missing required fields'}), 400
+
     post_id = len(posts) + 1
     post = {
         'id': post_id,

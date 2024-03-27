@@ -9,7 +9,8 @@ base_url = 'http://localhost:5000'
 
 #positive test cases
 positive_test_cases = [
-    
+
+    ('POST','/login',{'username': 'test_user', 'password': 'password'},200, 'success'),
     ('POST', '/post', {'title': 'Test Post', 'content': 'This is a test post', 'author': 'test_user'}, 200, 'success'),
     ('PUT', '/post/1', {'title': 'Updated Post', 'content': 'This post has been updated'}, 200, 'success'),
     ('POST', '/post/1/vote', {'vote': 'up'}, 200, 'success'),
@@ -103,6 +104,7 @@ positive_test_cases = [
 
 # negetive test cases
 negetive_test_cases = [
+    ('POST','/login',{'username': 'invalid_user', 'password': 'invalid_password'},404, 'Invalid username or password'),
     ('PUT', '/post/100', {'title': 'Updated Post', 'content': 'This post has been updated'}, 404, 'not found'),
     ('POST', '/post/100/vote', {'vote': 'up'}, 404, 'not found'),
     ('POST', '/post/100/comment', {'author': 'test_user', 'content': 'This is a test comment'}, 404, 'not found'),
