@@ -32,3 +32,24 @@ def create_post():
     }
     posts.append(post)
     return 'success'
+
+@app.route('/post/<int:post_id>', methods=['PUT'])
+def update_post(post_id):
+    """
+    This method updates post
+
+    Args:
+        post_id(str): identifier for each post
+
+    Returns:
+        str: feedback(success/not found)
+
+    """
+    data = request.json
+    for post in posts:
+        if post['id'] == post_id:
+            post['title'] = data['title']
+            post['content'] = data['content']
+            return 'success',200
+    return 'not found', 404
+
