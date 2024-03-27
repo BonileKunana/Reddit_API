@@ -14,7 +14,7 @@ It has the following functionality:
 How to run the API:
 1. Run the Reddit_API file (server)
 2. Run the Test_Reddit_API file (client)
-3.  *Please note it important to run the server before you run the client*
+3.  *Please note it is important to run the server before you run the client*
    
  The results will be shown on both the client side and server side:
 + The test file was designed in such a way that it first test for positive test cases(for examle, query a post that exists or delete a post that exist)
