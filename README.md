@@ -5,7 +5,7 @@ It has the following functionality:
 + A user is able to upvote (like) or downvote (dislike) those posts, using post id.
 + A user is able to comment on posts, using post id.
 + A user is able to upvote or downvote comments, using comment id.
-+ A user is able to query all the posts that they have created, using post id.
++ A user is able to query all the posts that they have created, username.
 + A user is able to query all the posts that they have upvoted or downvoted, using their username
 + A user is able to see all the posts created by a specific user by using their username.
 + A user is able to view any post showing you all the comments for that post as well as how many people upvoted or downvoted the post.
