@@ -1,6 +1,8 @@
 -This is a makeshift Reddit API
 
 It has the following functionality:
+
++A user need to login first
 + A user is able to create posts as well as update and delete those posts, using post id.
 + A user is able to upvote (like) or downvote (dislike) those posts, using post id.
 + A user is able to comment on posts, using post id.
