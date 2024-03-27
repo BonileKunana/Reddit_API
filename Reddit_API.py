@@ -55,9 +55,9 @@ def update_post(post_id):
 
 
 @app.route('/post/<int:post_id>/vote', methods=['POST'])
-def vote_post(post_id):
+def upvote_or_downvote_post(post_id):
     """
-    This method upvote and downvote a post
+    This method upvote or downvote a post
 
     Args:
       post_id(str): identifier for each post
@@ -77,9 +77,9 @@ def vote_post(post_id):
     return 'not found', 404
 
 @app.route('/post/<int:post_id>/comment', methods=['POST'])
-def add_comment(post_id):
+def comment_on_post(post_id):
     """
-    This mothod add comment to a post
+    This method add comment to a post
 
     Args:
       post_id(str): identifier for each post
@@ -103,7 +103,7 @@ def add_comment(post_id):
     return 'not found', 404
 
 @app.route('/comment/<int:comment_id>/vote=[]', methods=['POST'])
-def vote_comment(comment_id):
+def upvote_or_downvote_comment(comment_id):
     """
     This method upvote or downvote a comment
 
@@ -111,9 +111,7 @@ def vote_comment(comment_id):
       comment_id(str): identifier for each comment
 
     Returns:
-        str: feedback(success/not found)   
-
-
+        str: feedback(success/not found)
     """
 
     data = request.json
@@ -129,15 +127,16 @@ def vote_comment(comment_id):
     return 'not found', 404
 
 @app.route('/post/<int:post_id>/postview', methods=['GET'])
-def view_comments_for_post(post_id):
+def view_any_post(post_id):
     """
-    This method view all comments for a post along with upvotes/downvotes counts
+    This method view any post along with upvotes/downvotes counts 
 
     Args:
       post_id(str): identifier for each post
 
     Returns:
-       tuple/ str: post with (upvotes/downvotes)/feedback(not found)     
+       tuple/ str: post with (upvotes/downvotes)/feedback(not found)  
+
     """
     post = next((post for post in posts if post['id'] == post_id), None)
     if post:
@@ -170,7 +169,7 @@ def get_user_posts(username):
     return 'not found', 404
 
 @app.route('/user/<username>/votes', methods=['GET'])
-def get_user_votes(username):
+def get_voted_posts_by_user(username):
     """
     
     This method query all posts upvoted or downvoted by a specific user
