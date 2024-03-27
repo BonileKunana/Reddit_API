@@ -1,4 +1,5 @@
 -This is a makeshift Reddit API
+Reddit is a network of communities where people can dive into their interests, hobbies, and passions
 
 It has the following functionality:
 
