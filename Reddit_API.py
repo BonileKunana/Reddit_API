@@ -129,7 +129,7 @@ def vote_comment(comment_id):
     return 'not found', 404
 
 @app.route('/post/<int:post_id>/postview', methods=['GET'])
-def view_post(post_id):
+def view_comments_for_post(post_id):
     """
     This method view all comments for a post along with upvotes/downvotes counts
 
@@ -224,4 +224,5 @@ def delete_post(post_id):
 
 
 if __name__ == '__main__':
+    print(" * Server is listening!")
     app.run(debug=True)
