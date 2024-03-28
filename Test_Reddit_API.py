@@ -109,6 +109,7 @@ negetive_test_cases = [
     ('POST', '/post/100/vote', {'vote': 'up'}, 404, 'not found'),
     ('POST', '/post/100/comment', {'author': 'test_user', 'content': 'This is a test comment'}, 404, 'not found'),
     ('POST', '/comment/100/vote=[]', {'vote': 'up'}, 404, 'not found'),
+    ('POST', '/comment/100/vote=[]', {'vote': 'down'}, 404, 'not found'),
     ('GET','/post/1/postview',None,404, 'not found'),
     ('GET', '/user/non_user/posts', None, 404, 'not found'),
     ('GET', '/user/non_user/votes', None, 404, 'not found'),
