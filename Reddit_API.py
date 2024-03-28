@@ -23,8 +23,7 @@ def login():
     """
     username = request.json.get('username')
     password = request.json.get('password')
-    print(username)
-    print(password)
+    
     if username in users and users[username] == password:
         access_token = create_access_token(identity=username)
         return 'success', 200
