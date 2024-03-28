@@ -15,7 +15,6 @@ users = {'test_user': 'password'}
 # Data structures to store posts, comments, and user information
 posts = []
 comments = {}
-#users = {}
 
 @app.route('/login',methods=['POST'])
 def login():
